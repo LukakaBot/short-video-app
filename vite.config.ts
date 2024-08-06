@@ -3,6 +3,8 @@ import uni from "@dcloudio/vite-plugin-uni";
 import UnoCSS from 'unocss/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from '@uni-helper/vite-plugin-uni-components';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,6 +34,10 @@ export default defineConfig({
       dts: 'src/typings/components.d.ts',
       types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
       resolvers: []
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+      symbolId: 'svg-[name]',
     }),
   ],
   resolve: {
