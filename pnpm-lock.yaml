@@ -76,9 +76,15 @@ devDependencies:
   '@dcloudio/vite-plugin-uni':
     specifier: 3.0.0-4020420240722002
     version: 3.0.0-4020420240722002(postcss@8.4.40)(vite@5.2.8)(vue@3.4.35)
+  '@iconify/vue':
+    specifier: ^4.1.2
+    version: 4.1.2(vue@3.4.35)
   '@uni-helper/unocss-preset-uni':
     specifier: ^0.2.9
     version: 0.2.9(@unocss/rule-utils@0.61.9)(unocss-applet@0.8.2)(unocss@0.61.9)
+  '@uni-helper/vite-plugin-uni-components':
+    specifier: ^0.0.9
+    version: 0.0.9
   '@vue/runtime-core':
     specifier: ^3.4.21
     version: 3.4.35
@@ -100,9 +106,6 @@ devDependencies:
   unplugin-auto-import:
     specifier: ^0.18.2
     version: 0.18.2
-  unplugin-vue-components:
-    specifier: ^0.27.3
-    version: 0.27.3(vue@3.4.35)
   vite:
     specifier: 5.2.8
     version: 5.2.8(sass@1.77.8)(terser@5.31.3)
@@ -2489,6 +2492,15 @@ packages:
       - supports-color
     dev: true
 
+  /@iconify/vue@4.1.2(vue@3.4.35):
+    resolution: {integrity: sha512-CQnYqLiQD5LOAaXhBrmj1mdL2/NCJvwcC4jtW2Z8ukhThiFkLDkutarTOV2trfc9EXqUqRs0KqXOL9pZ/IyysA==}
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.4.35(typescript@4.9.5)
+    dev: true
+
   /@intlify/core-base@9.1.9:
     resolution: {integrity: sha512-x5T0p/Ja0S8hs5xs+ImKyYckVkL4CzcEXykVYYV6rcbXxJTe2o58IquSqX9bdncVKbRZP7GlBU1EcRaQEEJ+vw==}
     engines: {node: '>= 10'}
@@ -3486,6 +3498,23 @@ packages:
       '@unocss/rule-utils': 0.61.9
       unocss: 0.61.9(postcss@8.4.40)(vite@5.2.8)
       unocss-applet: 0.8.2(unocss@0.61.9)
+    dev: true
+
+  /@uni-helper/vite-plugin-uni-components@0.0.9:
+    resolution: {integrity: sha512-yomG3MCb4wYYBlyFFeepAuVArjy37xCqZk9nM5mqfTHqNEtl49jz1LZgIukkfv4EAG28M+pzNwWz34Dywi70zg==}
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@rollup/pluginutils': 5.1.0
+      chokidar: 3.6.0
+      debug: 4.3.6
+      fast-glob: 3.3.2
+      local-pkg: 0.4.3
+      magic-string: 0.30.11
+      minimatch: 8.0.4
+      resolve: 1.22.8
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /@unocss-applet/preset-applet@0.8.2(unocss@0.61.9):
@@ -6101,6 +6130,11 @@ packages:
     resolution: {integrity: sha512-FMJTLMXfCLMLfJxcX9PFqX5qD88Z5MRGaZCVzfuqeZSPsyiBzs+pahDQjbIWz2QIzPZz0NX9Zy4FX3lmK6YHIg==}
     engines: {node: '>= 12.13.0'}
 
+  /local-pkg@0.4.3:
+    resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
+    engines: {node: '>=14'}
+    dev: true
+
   /local-pkg@0.5.0:
     resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
     engines: {node: '>=14'}
@@ -6239,6 +6273,13 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /minimatch@8.0.4:
+    resolution: {integrity: sha512-W0Wvr9HyFXZRGIDgCicunpQ299OKXs9RgZfaukz4qAW/pJhcpUfupc9c+OObPOFueNy8VSrZgEmDtk6Kh4WzDA==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      brace-expansion: 2.0.1
     dev: true
 
   /minimatch@9.0.5:
@@ -7430,35 +7471,6 @@ packages:
       unplugin: 1.12.0
     transitivePeerDependencies:
       - rollup
-    dev: true
-
-  /unplugin-vue-components@0.27.3(vue@3.4.35):
-    resolution: {integrity: sha512-5wg7lbdg5ZcrAQNzyYK+6gcg/DG8K6rO+f5YeuvqGHs/PhpapBvpA4O/0ex/pFthE5WgRk43iWuRZEMLVsdz4Q==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@babel/parser': ^7.15.8
-      '@nuxt/kit': ^3.2.2
-      vue: 2 || 3
-    peerDependenciesMeta:
-      '@babel/parser':
-        optional: true
-      '@nuxt/kit':
-        optional: true
-    dependencies:
-      '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.0
-      chokidar: 3.6.0
-      debug: 4.3.6
-      fast-glob: 3.3.2
-      local-pkg: 0.5.0
-      magic-string: 0.30.11
-      minimatch: 9.0.5
-      mlly: 1.7.1
-      unplugin: 1.12.0
-      vue: 3.4.35(typescript@4.9.5)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
     dev: true
 
   /unplugin@1.12.0:

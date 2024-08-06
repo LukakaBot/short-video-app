@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
-import UnoCSS from 'unocss/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite';
+import UnoCSS from 'unocss/vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from '@uni-helper/vite-plugin-uni-components';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,11 +25,21 @@ export default defineConfig({
         filepath: './.eslintrc-auto-import.json',
         globalsPropValue: true,
       },
+      resolvers: []
     }),
     // 按需导入组件
     Components({
       dts: 'src/typings/components.d.ts',
       types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
+      resolvers: []
     }),
   ],
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  },
+  server: {
+    hmr: true
+  }
 });
