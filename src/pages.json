@@ -11,6 +11,12 @@
 			"style": {
 				"navigationBarTitleText": "短视频下载工具"
 			}
+		},
+		{
+			"path": "pages/video/index",
+			"style": {
+				"navigationBarTitleText": "短视频下载工具"
+			}
 		}
 	],
 	"globalStyle": {
