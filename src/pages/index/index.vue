@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import type { ConfigProviderThemeVars } from 'wot-design-uni';
+import { fetchVideoInfo } from '@/api/video';
 
 const themeVars: ConfigProviderThemeVars = {
   swiperRadius: '0'
@@ -37,22 +38,19 @@ const indicator = { type: 'dots-bar' };
 
 const videoLink = ref('');
 
-function handleSubmit() {
+async function handleSubmit() {
+  const res = await fetchVideoInfo(videoLink.value);
   console.log(videoLink.value);
-
+  console.log(res);
 }
 
 function handleClear() {
   videoLink.value = '';
-  uni.showToast({ title: '清空成功', icon: 'none' });
 }
 
 function handlePaste() {
   uni.getClipboardData({
     success: (res) => {
-      console.log(res);
-      console.log(res.data.trim());
-
       videoLink.value = res.data.trim();
     },
     fail: (err) => {
